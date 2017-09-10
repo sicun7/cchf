@@ -1,0 +1,176 @@
+<div class="ui segment">
+    <div class="ui form">
+        <div class="inline fields">
+            <label>IP:</label>
+            <div class="field">
+                <input>
+            </div>
+            <label>域名:</label>
+            <div class="field">
+                <input>
+            </div>
+            <label>开始时间:</label>
+            <div class="field">
+                <input date-picker>
+            </div>
+            <label>结束时间:</label>
+            <div class="field">
+                <input date-picker>
+            </div>
+            <div class="field">
+                <button class="ui small primary button" ng-click="vm.search()">
+                    <i class="search icon"></i>  查询
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="ui celled striped table">
+    <thead>
+        <tr>
+            <th>服务器</th>
+            <th>应用</th>
+            <th>业务组</th>
+            <th>运维负责人</th>
+            <th>开发负责人</th>
+            <th>服务器状态</th>
+            <th>服务器用途</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="9">
+
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<table class="ui celled striped table">
+    <thead>
+        <tr>
+            <th>字段类型</th>
+            <th>字段描述</th>
+            <th>字段名</th>
+            <th>字段值</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!--基本信息-->
+        <tr><td rowspan="8">基本信息</td> <td>主机名</td> <td>basic_hostname</td><td ng-bind="vm.OBJECT.basic_hostname"></td></tr>
+        <tr> <td>机器IP信息</td> <td>basic_ipaddr</td><td ng-bind="vm.OBJECT.basic_ipaddr"></td></tr>
+        <tr> <td>DNS服务器地址</td> <td>basic_dnsserver</td><td ng-bind="vm.OBJECT.basic_dnsserver"></td></tr>            
+        <tr> <td>Linux内核版本</td> <td>basic_ver_kernel</td><td ng-bind="vm.OBJECT.basic_ver_kernel"></td></tr>
+        <tr> <td>Linux发行版本</td> <td>basic_ver_release</td><td ng-bind="vm.OBJECT.basic_ver_release"></td></tr>
+        <tr> <td>(Janitor)APP版本号</td> <td>basic_ver_app</td><td ng-bind="vm.OBJECT.basic_ver_app"></td></tr>
+        <tr> <td>(Janitor)APP运行时间</td> <td>basic_runtime</td><td ng-bind="vm.OBJECT.basic_runtime"></td></tr>
+        <tr> <td>公网连接状态</td> <td>basic_network_wanip</td><td ng-bind="vm.OBJECT.basic_network_wanip"></td></tr>
+
+        <!--账户安全-->
+        <tr><td rowspan="3">账户安全</td> <td>linux系统弱口令</td> <td>check_weak_password</td><td ng-bind="vm.OBJECT.check_weak_password"></td></tr>
+        <tr> <td>tomcat账户弱口令</td> <td> </td><td ng-bind="vm.OBJECT.xxx"></td></tr>
+        <tr> <td>提升用户权限的操作</td> <td> </td><td ng-bind="vm.OBJECT.xxx"></td></tr>
+        
+        <tr><td>异常登录</td><td>查看可疑IP登录机器成功(no such)</td> <td>check_unusual_login_nosuch</td><td ng-bind="vm.OBJECT.check_unusual_login_nosuch"></td></tr>  
+        
+        <!--恶意进程,非法端口-->
+        <tr><td rowspan="2">恶意进程,非法端口</td> <td>syslog进程</td> <td>check_process_syslog</td><td ng-bind="vm.OBJECT.check_process_syslog"></td></tr>
+        <tr> <td>检查公网监听0.0.0.0的进程</td> <td> check_net_process</td><td ng-bind="vm.OBJECT.check_net_process"></td></tr>
+
+        <!--开机启动项-->
+        <tr><td rowspan="2">开机启动项</td> <td>/etc/rc.d目录(开机启动项运行级别)</td> <td>check_rcd</td><td ng-bind="vm.OBJECT.check_rcd"></td></tr>
+        <tr> <td>/etc/init/目录(conf配置文件)</td> <td> check_init</td><td ng-bind="vm.OBJECT.check_init"></td></tr>
+
+        <!--定时任务脚本-->
+        <tr><td rowspan="8">定时任务脚本</td> <td>/etc/crontab文件</td> <td>check_crontab</td><td ng-bind="vm.OBJECT.check_crontab"></td></tr>
+        <tr> <td>/etc/cron.d目录 </td> <td>check_crond</td><td ng-bind="vm.OBJECT.check_crond"></td></tr>
+        <tr> <td>/etc/cron.daily目录</td> <td>check_crondaily</td><td ng-bind="vm.OBJECT.check_crondaily"></td></tr>            
+        <tr> <td>/etc/cron.deny文件</td> <td>check_crondeny</td><td ng-bind="vm.OBJECT.check_crondeny"></td></tr>
+        <tr> <td>/etc/cron.hourly目录</td> <td>check_cronhourly</td><td ng-bind="vm.OBJECT.check_cronhourly"></td></tr>
+        <tr> <td>/etc/cron.monthly目录</td> <td>check_cronmonthly</td><td ng-bind="vm.OBJECT.check_cronmonthly"></td></tr>
+        <tr> <td>/etc/crontab 文件</td> <td>check_crontab</td><td ng-bind="vm.OBJECT.check_crontab"></td></tr>
+        <tr> <td>/etc/cron.weekly目录</td> <td>check_cronweekly</td><td ng-bind="vm.OBJECT.check_cronweekly"></td></tr>
+
+         <!--漏洞检测-->
+         <tr><td rowspan="4">漏洞检测</td> <td>bash破壳漏洞(CVE-2014-6271)</td> <td>check_vul_bash_shellshock</td><td ng-bind="vm.OBJECT.check_vul_bash_shellshock"></td></tr>
+         <tr> <td>glibc幽灵漏洞(CVE-2015-0235)</td> <td>check_vul_glibc_ghost</td><td ng-bind="vm.OBJECT.check_vul_glibc_ghost"></td></tr>
+         <tr> <td>linux内核脏牛漏洞</td> <td>check_vul_dirtycow</td><td ng-bind="vm.OBJECT.check_vul_dirtycow"></td></tr>            
+         <tr> <td>openssh漏洞(CVE-2016-10009)</td> <td>check_vul_openssh</td><td ng-bind="vm.OBJECT.check_vul_openssh"></td></tr>
+
+
+         <!--文件完整性校验-->
+         <tr><td rowspan="4">文件完整性校验</td> <td>/bin目录 </td> <td>basic_dic_bin</td><td ng-bind="vm.OBJECT.basic_dic_bin"></td></tr>
+         <tr> <td>/sbin目录</td> <td>basic_dic_sbin</td><td ng-bind="vm.OBJECT.basic_dic_sbin"></td></tr>
+         <tr> <td>/usr/bin目录 </td> <td>basic_dic_usr_bin</td><td ng-bind="vm.OBJECT.basic_dic_usr_bin"></td></tr>            
+         <tr> <td>/usr/sbin目录</td> <td>check_vul_openssh</td><td ng-bind="vm.OBJECT.basic_dic_usr_sbin"></td></tr>
+
+         <tr><td>异常文件处理</td><td>Webshell后门排查</td> <td></td><td></td></tr>  
+         
+
+         <!--安全配置-->
+         <tr><td rowspan="23">安全配置</td> <td>是否存在多余服务</td> <td>check_sysconf_services_unsafe</td><td ng-bind="vm.OBJECT.check_sysconf_services_unsafe"></td></tr>
+         <tr> <td>SNMP服务-是否开启</td> <td>check_sysconf_snmp_service</td><td ng-bind="vm.OBJECT.check_sysconf_snmp_service"></td></tr>
+         <tr> <td>SNMP服务-团体名称</td> <td>check_sysconf_snmp_community</td><td ng-bind="vm.OBJECT.check_sysconf_snmp_community"></td></tr>            
+         <tr> <td>系统默认账号检测</td> <td>check_sysconf_user_default</td><td ng-bind="vm.OBJECT.check_sysconf_user_default"></td></tr>
+         <tr> <td>默认账号交互式登录检测</td> <td>check_sysconf_user_interact</td><td ng-bind="vm.OBJECT.check_sysconf_user_interact"></td></tr>
+         <tr> <td>限制root账号ssh登陆</td> <td>check_sysconf_user_permit_root</td><td ng-bind="vm.OBJECT.check_sysconf_user_permit_root"></td></tr>            
+         <tr> <td>密码复杂度要求-口令最小长度:8</td> <td>check_sysconf_password_minlen</td><td ng-bind="vm.OBJECT.check_sysconf_password_minlen"></td></tr>
+         <tr> <td>密码复杂度要求-最少不同字符:3 </td> <td>check_sysconf_password_difok</td><td ng-bind="vm.OBJECT.check_sysconf_password_difok"></td></tr>
+         <tr> <td>密码复杂度要求-最少大写字母:1</td> <td>check_sysconf_password_ucredit</td><td ng-bind="vm.OBJECT.check_sysconf_password_ucredit"></td></tr>            
+         <tr> <td>密码复杂度要求-最少小写字母:2</td> <td>check_sysconf_password_lcredit</td><td ng-bind="vm.OBJECT.check_sysconf_password_lcredit"></td></tr>
+         <tr> <td>密码复杂度要求-最少数字:2</td> <td>check_sysconf_password_dcredit</td><td ng-bind="vm.OBJECT.check_sysconf_password_dcredit"></td></tr>
+         <tr> <td>开启登录失败处理功能</td> <td>check_sysconf_password_retry</td><td ng-bind="vm.OBJECT.check_sysconf_password_retry"></td></tr>            
+         <tr> <td>密码有效期-最小使用时间</td> <td>check_sysconf_password_mindays</td><td ng-bind="vm.OBJECT.check_sysconf_password_mindays"></td></tr>
+         <tr> <td>密码有效期-最长使用时间</td> <td>check_sysconf_password_maxdays</td><td ng-bind="vm.OBJECT.check_sysconf_password_maxdays"></td></tr>
+         <tr> <td>密码有效期-密码提示修改时间</td> <td>check_sysconf_password_warnage</td><td ng-bind="vm.OBJECT.check_sysconf_password_warnage"></td></tr>            
+         <tr> <td>检查/etc/passwd的权限</td> <td>check_file_permission_passwd</td><td ng-bind="vm.OBJECT.check_file_permission_passwd"></td></tr>
+         <tr> <td>检查/etc/group的权限</td> <td>check_file_permission_group</td><td ng-bind="vm.OBJECT.check_file_permission_group"></td></tr>
+         <tr> <td>检查/etc/shdow的权限</td> <td>check_file_permission_shadow</td><td ng-bind="vm.OBJECT.check_file_permission_shadow"></td></tr>            
+         <tr> <td>umask检查</td> <td>check_sysconf_umask</td><td ng-bind="vm.OBJECT.check_sysconf_umask"></td></tr>
+         <tr> <td>设置syslog日志服务器</td> <td>check_sysconf_syslog</td><td ng-bind="vm.OBJECT.check_sysconf_syslog"></td></tr>
+         <tr> <td>检查是否启用路由转发</td> <td>check_sysconf_ip_forward</td><td ng-bind="vm.OBJECT.check_sysconf_ip_forward"></td></tr>            
+         <tr> <td>检查ssh配置是否监听非22端口</td> <td>check_sysconfig_ssh_port</td><td ng-bind="vm.OBJECT.check_sysconfig_ssh_port"></td></tr>
+         <tr> <td>检查iptables是否有SSH的NAT规则</td> <td>check_sysconfig_ssh_nat</td><td ng-bind="vm.OBJECT.check_sysconfig_ssh_nat"></td></tr>
+           
+        
+         <!--tomcat安全配置-->
+         <tr><td rowspan="4">tomcat安全配置</td> <td>tomcat版本号</td> <td>check_tomcat_version</td><td ng-bind="vm.OBJECT.check_tomcat_version"></td></tr>
+         <tr> <td>删除默认安装的范例文件和帮助文档</td> <td>check_tomcat_sample_file</td><td ng-bind="vm.OBJECT.check_tomcat_sample_file"></td></tr>
+         <tr> <td>检查默认的shutdown字符串</td> <td>check_tomcat_shutdown_string</td><td ng-bind="vm.OBJECT.check_tomcat_shutdown_string"></td></tr>            
+         <tr> <td>检查是否禁止文件列表显示</td> <td>check_tomcat_listing</td><td ng-bind="vm.OBJECT.check_tomcat_listing"></td></tr>
+
+         <tr><td>Nginx安全配置</td><td>nginx版本号</td> <td></td><td ng-bind="vm.OBJECT.check_nginx_version"></td></tr>  
+
+         <!--mysql安全配置-->
+        <tr><td rowspan="2">mysql安全配置</td> <td>mysql版本号</td> <td>check_mysql_version</td><td ng-bind="vm.OBJECT.check_mysql_version"></td></tr>
+        <tr> <td>检查.mysql_history文件</td> <td> check_mysql_historyfile</td><td ng-bind="vm.OBJECT.check_mysql_historyfile"></td></tr>
+
+        <!--客户端安装-->
+        <tr><td rowspan="2">客户端安装</td> <td>是否安装flume日志客户端</td> <td>check_install_flume</td><td ng-bind="vm.OBJECT.check_install_flume"></td></tr>
+        <tr> <td>是否安装cmdb客户端</td> <td> check_install_cmdb</td><td ng-bind="vm.OBJECT.check_install_cmdb"></td></tr>
+
+
+        <!--其他信息-->
+        <tr><td rowspan="3">其他信息</td> <td>openssl版本号</td> <td>check_openssl_version</td><td ng-bind="vm.OBJECT.check_openssl_version"></td></tr>
+        <tr> <td>openssh版本号</td> <td> check_openssh_version</td><td ng-bind="vm.OBJECT.check_openssh_version"></td></tr>
+        <tr> <td>ssh配置文件修改时间</td> <td> check_sshconfig_ctime</td><td ng-bind="vm.OBJECT.check_sshconfig_ctime"></td></tr>
+         
+
+    </tbody>
+</table>

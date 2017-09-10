@@ -1,0 +1,7 @@
+define(['app'], function (app) {
+    app.controller('SmsWarnListController', ['$scope', 'CommonService', function ($scope, CommonService) {
+        var vm = this;
+        vm.smsWarnList = [];
+        vm.smsWarnList1 = [{ age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, { age: Math.random() * 100 }, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}];
+    }]);
+});

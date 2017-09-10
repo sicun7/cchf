@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/semantic.min.css">
+
+    <script type="text/javascript" src="/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/semantic.min.js"></script>
+
+    <title>Login</title>
+
+    <style>
+        .login-box .column {
+            box-shadow: none !important;
+        }
+
+        .login-box .column:nth-of-type(2) {
+            margin-top: 100px !important;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="feature alternate ui stripe vertical segment">
+    <div class="ui three column center aligned divided relaxed stackable grid container">
+        <div class="row login-box">
+            <div class="column"></div>
+            <div class="column">
+                <h2 class="ui teal image header">
+                    <!--<img src="assets/images/logo.png" class="image">-->
+                    <div class="content">
+                        Log-in to your account
+                    </div>
+                </h2>
+                <form class="ui large form">
+                    <div class="ui stacked segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="email" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="ui fluid large teal submit button">Login</div>
+                    </div>
+
+                    <div class="ui error message"></div>
+
+                </form>
+
+                <div class="ui message">
+                    <div class="ui fluid large primary submit button">Sign Up</div>
+                </div>
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

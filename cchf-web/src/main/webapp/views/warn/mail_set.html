@@ -1,0 +1,87 @@
+<form class="ui form set-form">
+    <div class="fields">
+        <div class="field">
+            <label>类型</label>
+            <select class="ui dropdown" drop-down ng-model="vm.rule.rule_type">
+                        <option value="">选择类型</option> 
+                        <option ng-repeat="t in vm.smsWarnTypes" value="{{t.type}}">{{t.desc}}</option>          
+                    </select>
+        </div>
+    </div>
+
+    <div class="two fields">
+        <div class="field">
+            <label>标题</label>
+            <input>
+        </div>
+    </div>
+
+    <div class="two fields">
+        <div class="field">
+            <label>内容</label>
+            <textarea rows="5"></textarea>
+        </div>
+    </div>
+
+    <div class="two fields">
+        <div class="field">
+            <label>
+                收件人邮箱
+                <a class="ui teal tag label">本次发送人数: 128</a>
+            </label>
+            <textarea rows="5" placeholder="请输入邮箱, 用逗号隔开" ng-model="vm.smsWarn.phone_nos"></textarea>
+        </div>
+    </div>
+
+    <div class="inline fields">
+        <div class="two wide field">
+            <input type="file" id="file_phone_import">
+        </div>
+        <div class="two wide field">
+            <button class="ui mini black button" ng-click="vm.import()">
+                <i class="upload icon"></i>CSV导入
+            </button>
+        </div>
+    </div>
+
+
+    <div class="five fields">
+        <div class="field">
+            <label>发送时间</label>
+            <div class="two fields">
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" tabindex="0" class="hidden">
+                        <label>立即发送</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" tabindex="0" class="hidden">
+                        <label>定时发送</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="fields">
+        <div class="field">
+            <label>定时1</label>
+            <input date-picker>
+        </div>
+        <div class="field">
+            <label>定时2</label>
+            <input date-picker>
+        </div>
+    </div>
+
+    <div class="fields">
+        <div class="field">
+            <button class="ui mini green button"><i class="mail forward icon"></i>提交</button>
+            <button class="ui mini grey button"><i class="undo icon"></i>重置</button>
+        </div>
+    </div>
+
+</form>

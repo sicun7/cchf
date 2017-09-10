@@ -1,0 +1,86 @@
+<div class="ui segment">
+    <div class="ui form query-form">
+        <div class="inline fields">
+            <label>开始时间:</label>
+            <div class="field">
+                <input date-picker>
+            </div>
+            <label>结束时间:</label>
+            <div class="field">
+                <input date-picker>
+            </div>
+
+            <label>任务状态:</label>
+            <div class="field">
+                <select class="ui dropdown" drop-down>
+                            <option value="1">未开始</option>
+                            <option value="1">已完成</option>
+                        </select>
+            </div>
+
+            <label>创建者:</label>
+            <div class="field">
+                <input ng-model="vm.queryUserTag.mid">
+            </div>
+
+            <div class="field">
+                <button class="ui mini teal button" ng-click="vm.search()">
+                             <i class="search icon"></i>  查询
+                         </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<table class="ui celled striped table">
+    <thead>
+        <tr>
+            <th>任务ID</th>
+            <th>发送时间</th>
+            <th>类型</th>
+            <th>发送内容</th>
+            <th>发送人数</th>
+            <th>任务状态</th>
+            <th>发送人数</th>
+            <th>发送详情</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="9">
+                <span class="page-circle"> <i class="angle double left icon"></i> </span>
+                <span class="page-circle"> <i class="angle left icon"></i> </span>
+                <span class="page-separator"></span> Page <input class="page-no-input" value="2"> of 8
+                <span class="ui-separator"></span>
+                <span class="page-circle"> <i class="angle right icon"></i> </span>
+                <span class="page-circle"> <i class="angle double right icon"></i> </span>
+                <select>
+                                <option value="15">15</option>
+                                <option value="30">30</option>
+                                <option value="100">100</option>
+                            </select>
+                <span class="pull-right">
+                                    View 1 - 15 of 320
+                            </span>
+            </td>
+        </tr>
+    </tfoot>
+</table>

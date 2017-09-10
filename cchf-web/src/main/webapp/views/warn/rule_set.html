@@ -1,0 +1,67 @@
+<form class="ui form set-form">
+  <div class="fields">
+    <div class="field">
+      <label>类型</label>
+      <select class="ui dropdown" drop-down ng-model="vm.rule.rule_type">
+          <option value="">选择类型</option> 
+          <option ng-repeat="t in vm.ruleTypes" value="{{t.type}}">{{t.desc}}</option>          
+      </select>
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="field">
+      <label>漏洞类型</label>
+      <select class="ui dropdown" drop-down ng-model="vm.rule.attack_type">
+          <option value="">选择漏洞类型</option>  
+          <option ng-repeat="t in vm.bugTypes" value="{{t.type}}">{{t.desc}}</option>     
+      </select>
+    </div>
+  </div>
+
+  <div class="two fields">
+    <div class="field">
+      <label>域名</label>
+      <textarea rows="3" placeholder="多个域名, 请用逗号隔开"></textarea>
+    </div>
+  </div>
+
+  <div class="two fields">
+    <div class="field">
+      <label>规则</label>
+      <textarea rows="3" placeholder="输入匹配规则"></textarea>
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="field">
+      <label>过期时间</label>
+      <input date-picker placeholder="不填写则永不过期">
+    </div>
+  </div>
+
+  <div class="fields">
+    <div class="field">
+      <div class="ui checkbox">
+        <input type="checkbox" ng-model="vm.rule.rec_log">
+        <label>是否纪录明细日志</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="two fields">
+    <div class="field">
+      <label>说明</label>
+      <textarea rows="3" placeholder="请输入规则说明或者wiki链接"></textarea>
+    </div>
+  </div>
+
+
+  <div class="fields">
+    <div class="field">
+      <button class="ui mini green button"><i class="mail forward icon"></i>提交</button>
+      <button class="ui mini grey button"><i class="undo icon"></i>重置</button>
+    </div>
+  </div>
+
+</form>
